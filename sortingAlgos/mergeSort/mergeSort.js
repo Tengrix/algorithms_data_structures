@@ -21,6 +21,17 @@ const merge = (left,right) => {
 console.log(mergeSort([2,1,4,3,6,5,8,7]))
 
 
+const mergeSortTest = (arr) => {
+    if(arr.length <=1 ) return arr;
+    let left = 0;
+    let right = arr.length;
+    let mid = Math.floor((right+left)/2)
+    let leftArr = mergeSortTest(arr.slice(left,mid))
+    let rightArr = mergeSortTest(arr.slice(mid,right))
+
+    return mergeTest(leftArr,rightArr)
+}
+
 const mergeTest = (arr1, arr2) => {
     let arr = [];
     let i = 0;
