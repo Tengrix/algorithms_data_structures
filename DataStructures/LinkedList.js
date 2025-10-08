@@ -41,10 +41,13 @@ class SinglyLinkedList {
         return current;
     }
     shift(){
-        if(!this.head) return undefined;
+        if(!this.length) return undefined;
         let currentHead = this.head;
         this.head = currentHead.next;
         this.length--
+        if(this.length===0){
+            this.tail = null;
+        }
         return currentHead
     }
 }
@@ -53,6 +56,8 @@ let list = new SinglyLinkedList()
 list.push('test')
 list.push('testTest')
 list.push('testTest123')
+list.shift()
+list.shift()
 list.shift()
 
 // const first = new Node('Hi')
