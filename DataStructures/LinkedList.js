@@ -40,13 +40,20 @@ class SinglyLinkedList {
         }
         return current;
     }
+    shift(){
+        if(!this.head) return undefined;
+        let currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--
+        return currentHead
+    }
 }
 
 let list = new SinglyLinkedList()
 list.push('test')
 list.push('testTest')
 list.push('testTest123')
-list.pop()
+list.shift()
 
 // const first = new Node('Hi')
 // first.next = new Node('there')
