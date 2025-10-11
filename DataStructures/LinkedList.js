@@ -62,6 +62,16 @@ class SinglyLinkedList {
         this.length++
         return this;
     }
+    get(pos){
+        if(pos >= this.length || pos < 0) return null;
+        let counter = 0;
+        let current = this.head
+        while(pos !== counter){
+            current = current.next
+            counter++
+        }
+        return current
+    }
 }
 
 let list = new SinglyLinkedList()
@@ -69,7 +79,7 @@ list.push('test')
 list.push('testTest')
 list.push('testTest123')
 list.shift()
-list.unshift('check')
+console.log(list.get(1))
 
 // const first = new Node('Hi')
 // first.next = new Node('there')
