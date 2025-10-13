@@ -72,13 +72,22 @@ class SinglyLinkedList {
         }
         return current
     }
+    set(pos,value){
+        let node = this.get(pos)
+        if(node){
+            node.val = value
+            return true
+        }else{
+            return false
+        }
+    }
 }
 
 let list = new SinglyLinkedList()
 list.push('test')
 list.push('testTest')
 list.push('testTest123')
-list.shift()
+list.set(2,'newVal')
 console.log(list.get(1))
 
 // const first = new Node('Hi')
