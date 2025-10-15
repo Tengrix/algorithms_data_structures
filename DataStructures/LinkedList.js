@@ -81,15 +81,30 @@ class SinglyLinkedList {
             return false
         }
     }
+    insert(pos,value){
+        let newNode = new Node(value)
+        if(pos > this.length || pos < 0) return false;
+        if(pos===this.length){
+            return !!this.push(value)
+        }
+        if(pos===0){
+            return !!this.unshift(value)
+        }
+        let prev = this.get(pos-1)
+        let temp = prev.next
+        prev.next = newNode
+        newNode.next = temp
+        this.length++
+        return true;
+    }
 }
 
 let list = new SinglyLinkedList()
 list.push('test')
 list.push('testTest')
 list.push('testTest123')
-list.set(2,'newVal')
-console.log(list.get(1))
-
+list.push('newVal')
+list.insert(3,'!!!!!')
 // const first = new Node('Hi')
 // first.next = new Node('there')
 // first.next.next = new Node('how')
