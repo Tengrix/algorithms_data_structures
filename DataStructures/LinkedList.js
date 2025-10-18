@@ -107,7 +107,27 @@ class SinglyLinkedList {
         this.length--
         return removedNode
     }
+    reverse(){
+        if(this.length===0) return this;
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+        let counter = 0;
+        let next;
+        let prev = null;
+
+        while(counter < this.length){
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+            counter++
+        }
+        return this;
+    }
 }
+//  1 - 2 - 3 - 4
+
 
 let list = new SinglyLinkedList()
 list.push('test')
@@ -116,6 +136,7 @@ list.push('testTest123')
 list.push('newVal')
 list.insert(3,'!!!!!')
 list.remove(1)
+list.reverse()
 // const first = new Node('Hi')
 // first.next = new Node('there')
 // first.next.next = new Node('how')
