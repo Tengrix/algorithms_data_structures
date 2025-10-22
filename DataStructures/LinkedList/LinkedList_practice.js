@@ -45,6 +45,18 @@ class List {
         this.length--;
         return removedVal;
     }
+    get(pos){
+        if(pos >= this.length || pos < 0) return undefined;
+        if(pos === 0) return this.head;
+        if(pos === this.length - 1) return this.tail;
+        let counter = 0;
+        let current = this.head;
+        while(counter !== pos){
+            counter++
+            current = current.next
+        }
+        return current.next;
+    }
 
 }
 
