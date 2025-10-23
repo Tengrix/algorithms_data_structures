@@ -57,6 +57,29 @@ class List {
         }
         return current.next;
     }
+    set(pos,val){
+        let node = this.get(pos)
+        if(node){
+            node.val = val
+            return true;
+        }else{
+            return false;
+        }
+    }
+    insert(pos,value){
+        let newNode = new Node(value)
+        if(pos > this.length || pos < 0) return undefined;
+        if(pos === this.length){
+            return !!this.push(value)
+        }
+        let prev = this.get(pos-1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++
+        return true;
+
+    }
 
 }
 
