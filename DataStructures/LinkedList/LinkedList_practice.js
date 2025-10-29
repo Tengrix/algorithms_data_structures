@@ -78,7 +78,33 @@ class List {
         newNode.next = temp;
         this.length++
         return true;
+    }
+    remove(pos){
+        if(pos > this.length || pos < 0) return null;
+        // if(pos===0) return this.shift()
+        // if(pos===this.length-1) return this.pop()
+        let current = this.get(pos-1);
+        let temp = current.next;
+        current.next = temp.next;
+        this.length--
+        return temp;
+    }
+    rotate(pos){
+        if(this.length===0) return null;
 
+        let tail = this.tail
+        this.tail = this.head;
+        this.head = tail;
+        let curr = this.head
+        let prev = null;
+        let next
+        for(let i = 0; i < pos; i++){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr
+            curr = next
+        }
+        return this
     }
 
 }
