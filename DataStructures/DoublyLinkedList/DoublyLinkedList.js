@@ -25,4 +25,17 @@ class DoublyLinkedList {
         this.length++
         return this;
     }
+    pop(){
+        if(this.length < 1) return undefined;
+        let tail = this.tail;
+        if(this.length===1){
+            this.tail = null;
+            this.head = null;
+        }else{
+            this.tail = tail.prev;
+            this.tail.next = null;
+        }
+        this.length--;
+        return tail;
+    }
 }
