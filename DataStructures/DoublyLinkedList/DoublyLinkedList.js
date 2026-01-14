@@ -67,4 +67,22 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+    get(pos){
+        if(pos < 0 || pos >= this.length){
+            return null;
+        }
+        let current;
+        if(Math.floor(this.length/2) > pos){
+            current = this.head;
+            for(let i = 0; i < pos ;i++){
+                current = current.next;
+            }
+        }else{
+            current = this.tail;
+            for(let i = this.length-1; i > pos ;i--){
+                current = current.prev;
+            }
+        }
+        return current;
+    }
 }
