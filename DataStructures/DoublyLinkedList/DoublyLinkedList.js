@@ -126,6 +126,3 @@ class DoublyLinkedList {
         return getRemovingNode
     }
 }
-
-1 - 5 - 6 - 7 - 9
-        6
