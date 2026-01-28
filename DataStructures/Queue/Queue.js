@@ -56,4 +56,5 @@ console.log(queue.push('1'))
 console.log(queue.push('2'))
 console.log(queue.push('3'))
 console.log(queue)
-console.log(queue.shift())
+
+// 1 2 3
